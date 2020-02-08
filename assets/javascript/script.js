@@ -97,7 +97,7 @@ function displayWeatherInfo() {
     var windSpeed = response.list[0].wind.speed;
 
     //setting wind speed
-    $("#windSpeed").text("Wind Speed: " + windspeed + "MPH");
+    $("#windSpeed").text("Wind Speed: " + windSpeed + "MPH");
 
     var cardIndex = 1;
     for (var i = 0; i < response.list.length; i += 8) {
@@ -161,7 +161,7 @@ function renderButtons() {
     // Then dynamicaly generates buttons for each city in the array
     var a = $("<button>");
     // Adds a class of city to our button
-    a.addClass("city btn btn-primary m-1 col-12");
+    a.addClass("city btn m-1 col-12");
     // Added a data-attribute
     a.attr("data-name", cities[i]);
     // Provided the initial button text
