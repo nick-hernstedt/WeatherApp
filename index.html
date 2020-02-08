@@ -16,10 +16,113 @@
       crossorigin="anonymous"
     />
 
-    <title>Hello, world!</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+    />
+
+    <title>5 Day Forecast</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+
+
+    <div class="jumbotron">5 day Forecast</div>
+
+
+
+
+    <div class="container">
+      <div class="row">
+        <!-- cities and search bar -->
+        <div class="container-left  col-3" id="citiesBar">
+          <input type="text" id="cityInput" placeholder="Search your city" />
+          <div class="btn" type="button" id="searchBtn">☀</div>
+        </div>
+        <div id="cityButtons"></div>
+
+
+
+        <!-- current day weather -->
+        <div class="container-right col-8">
+          <div class="border">Please search for you city!</div>
+          <img id="weatherIcon"></img>
+          <div id="currentDate"></div>
+          <div id="temp"></div>
+          <div id="humidity"></div>
+          <div id="windSpeed"></div>
+          <div id="uvIndex"></div>
+        </div>
+      </div>
+
+
+      <H1 class="text-center">5 Day Weather Forecast</H1>
+      <!-- 5 day forcast cards -->
+        <div class="d-flex justify-content-center">
+
+            <!-- DAY 1 CARD -->
+            <div class="card m-1" >
+                <div class="card-body">
+                  <h5 class="card-title" id="day1date">Pick your city</h5>
+                  <img class="day1Icon" id="day1Icon"></img>
+                  <p class="card-text" id="day1Temp"></p>
+                  <p class="card-text" id="day1Humidity"></p>
+                  
+                </div>
+              </div>
+
+              <!-- DAY 2 CARD -->
+              <div class="card m-1" >
+                <div class="card-body">
+                  <h5 class="card-title" id="day1date">Pick your city</h5>
+                  <img class="day2Icon" id="day2Icon"></img>
+                  <p class="card-text" id="day2Temp"></p>
+                  <p class="card-text" id="day2Humidity"></p>
+                  
+                </div>
+              </div>
+
+              <!-- DAY 3 CARD -->
+              <div class="card m-1" >
+                <div class="card-body">
+                  <h5 class="card-title" id="day3date">Pick your city</h5>
+                  <img class="day3Icon" id="day3Icon"></img>
+                  <p class="card-text" id="day3Temp"></p>
+                  <p class="card-text" id="day3Humidity"></p>
+                  
+                </div>
+              </div>
+
+              <!-- DAY 4 CARD -->
+              <div class="card m-1" >
+                <div class="card-body">
+                  <h5 class="card-title" id="da41date">Pick your city</h5>
+                  <img class="day4Icon" id="day4Icon"></img>
+                  <p class="card-text" id="day4Temp"></p>
+                  <p class="card-text" id="day4Humidity"></p>
+                  
+                </div>
+              </div>
+
+              <!-- DAY 5 CARD -->
+              <div class="card m-1" >
+                <div class="card-body">
+                  <h5 class="card-title" id="day5date">Pick your city</h5>
+                  <img class="day5Icon" id="day5Icon"></img>
+                  <p class="card-text" id="day5Temp"></p>
+                  <p class="card-text" id="day5Humidity"></p>
+                  
+                </div>
+              </div>
+
+
+        </div>
+         
+
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
