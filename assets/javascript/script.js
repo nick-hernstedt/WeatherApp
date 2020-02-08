@@ -69,3 +69,27 @@ function displayWeatherInfo() {
             var image = $(`#result-icon`).attr(`src`, snow)
             $(`#result-icon`).append(image)
         }
+
+        //setting name and date text
+        var cityName = $('#city-name').text(name + ' ' + date);
+
+        // dispalying the city name
+        cityDiv.append(cityName);
+
+        //getting temp
+        var temp = response.list[0].main.temp;
+
+        // setting temp text
+        $('#temp').text("Temperature: " + temp + 'F°');
+
+        //getting humidity
+        var humidity = response.list[0].main.humidity
+
+        //setting humidity text
+        $('#humidity').text('Humidity: ' + humidity + '%')
+
+        // getting wind speed
+        var windSpeed = response.list[0].wind.speed
+
+        //setting wind speed
+        $('#windSpeed').text('Wind Speed: ' + windspeed + 'MPH')
