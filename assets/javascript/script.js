@@ -1,6 +1,7 @@
 var cities = ["Bakersfield", "Wasco", "Shafter", "Sacramento", "Seattle"];
 
 function displayWeatherInfo() {
+  debugger;
   var city = $(this).attr("data-name");
   var queryURL =
     "https://api.openweathermap.org/data/2.5/forecast?q=" +
