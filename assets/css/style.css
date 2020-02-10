@@ -5,13 +5,14 @@ html {
 
 .mainBox {
   color: white;
-  flex-wrap: wrap;
+  border-radius: 15px;
 }
 
 #header {
-  font-size: 5rem;
+  font-size: 6rem;
   color: yellow;
   padding-bottom: 3rem;
+  font-family: "Bangers", cursive;
 }
 
 .bg {
@@ -36,7 +37,9 @@ html {
 }
 
 #lowerHeader {
+  font-size: 4rem;
   color: yellow;
+  font-family: "Bangers", cursive;
 }
 
 #city-name {
