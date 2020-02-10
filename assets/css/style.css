@@ -3,8 +3,15 @@ html {
   height: 100%;
 }
 
-body {
-  padding-top: 20rem;
+.mainBox {
+  color: white;
+  flex-wrap: wrap;
+}
+
+#header {
+  font-size: 5rem;
+  color: yellow;
+  padding-bottom: 3rem;
 }
 
 .bg {
@@ -33,5 +40,41 @@ body {
 }
 
 #city-name {
-  height: 20rem;
+  font-size: 4rem;
+}
+
+.boxFont {
+  font-size: 2rem;
+}
+
+#weatherIcon {
+  float: right;
+  width: 300px;
+  height: 300px;
+  border: none;
+  box-sizing: inherit;
+}
+
+.low {
+  background-color: green;
+  color: black;
+}
+
+.moderate {
+  background-color: yellow;
+  color: black;
+}
+
+.high {
+  background-color: orange;
+  color: black;
+}
+
+.very-high {
+  background-color: red;
+  color: black;
+}
+
+#result-uv-index {
+  width: 20rem;
 }

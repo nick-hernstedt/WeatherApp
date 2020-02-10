@@ -1,7 +1,6 @@
 var cities = ["Bakersfield", "Wasco", "Shafter", "Sacramento", "Seattle"];
 
 function displayWeatherInfo() {
-  debugger;
   var city = $(this).attr("data-name");
   var queryURL =
     "https://api.openweathermap.org/data/2.5/forecast?q=" +
@@ -13,9 +12,40 @@ function displayWeatherInfo() {
     url: queryURL,
     method: "GET"
   }).then(function(response) {
-    console.log(response.list[0].weather[0].icon);
+    var UVIndex =
+      `https://api.openweathermap.org/data/2.5/uvi?appid=9960537bc504b12a81ff658aa9dd27bd&lat=` +
+      response.city.coord.lat +
+      `&lon=` +
+      response.city.coord.lon;
 
-    console.log(response);
+    $.ajax({
+      url: UVIndex,
+      method: "GET"
+    }).then(function(UVResponse) {
+      //UV index
+      $(`#result-uv-index`).text(`UV Index: ` + UVResponse.value);
+      if (UVResponse.value <= 2) {
+        $(`#result-uv-index`).removeClass(`moderate`);
+        $(`#result-uv-index`).removeClass(`high`);
+        $(`#result-uv-index`).removeClass(`very-high`);
+        $(`#result-uv-index`).addClass(`low`);
+      } else if (UVResponse.value <= 5) {
+        $(`#result-uv-index`).removeClass(`low`);
+        $(`#result-uv-index`).removeClass(`high`);
+        $(`#result-uv-index`).removeClass(`very-high`);
+        $(`#result-uv-index`).addClass(`moderate`);
+      } else if (UVResponse.value <= 7) {
+        $(`#result-uv-index`).removeClass(`moderate`);
+        $(`#result-uv-index`).removeClass(`low`);
+        $(`#result-uv-index`).removeClass(`very-high`);
+        $(`#result-uv-index`).addClass(`high`);
+      } else {
+        $(`#result-uv-index`).removeClass(`moderate`);
+        $(`#result-uv-index`).removeClass(`high`);
+        $(`#result-uv-index`).removeClass(`low`);
+        $(`#result-uv-index`).addClass(`very-high`);
+      }
+    });
 
     // setting images for icons
     var snow = "http://openweathermap.org/img/wn/13d@2x.png";
@@ -28,7 +58,7 @@ function displayWeatherInfo() {
     var rain = "http://openweathermap.org/img/wn/10d@2x.png";
 
     // setting city name
-    var cityDiv = $("#result-name");
+    var cityDiv = $("#city-name");
 
     //storing city name
     var name = response.city.name;
@@ -50,29 +80,29 @@ function displayWeatherInfo() {
     var icon = response.list[0].weather[0].icon;
 
     if (icon == `01d` || icon == `01n`) {
-      var image = $(`#result-icon`).attr(`src`, clear);
-      $(`#result-icon`).append(image);
+      var image = $(`#weatherIcon`).attr(`src`, clear);
+      $(`#weatherIcon`).append(image);
     } else if (icon == `02d` || icon == `02n`) {
-      var image = $(`#result-icon`).attr(`src`, fewClouds);
-      $(`#result-icon`).append(image);
+      var image = $(`#weatherIcon`).attr(`src`, fewClouds);
+      $(`#weatherIcon`).append(image);
     } else if (icon == `03d` || icon == `03n`) {
-      var image = $(`#result-icon`).attr(`src`, scatteredClouds);
-      $(`#result-icon`).append(image);
+      var image = $(`#weatherIcon`).attr(`src`, scatteredClouds);
+      $(`#weatherIcon`).append(image);
     } else if (icon == `04d` || icon == `04n`) {
-      var image = $(`#result-icon`).attr(`src`, brokenClouds);
-      $(`#result-icon`).append(image);
+      var image = $(`#weatherIcon`).attr(`src`, brokenClouds);
+      $(`#weatherIcon`).append(image);
     } else if (icon == `09d` || icon == `09n`) {
-      var image = $(`#result-icon`).attr(`src`, showerRain);
-      $(`#result-icon`).append(image);
+      var image = $(`#weatherIcon`).attr(`src`, showerRain);
+      $(`#weatherIcon`).append(image);
     } else if (icon == `10d` || icon == `10n`) {
-      var image = $(`#result-icon`).attr(`src`, rain);
-      $(`#result-icon`).append(image);
+      var image = $(`#weatherIcon`).attr(`src`, rain);
+      $(`#weatherIcon`).append(image);
     } else if (icon == `11d` || icon == `11n`) {
-      var image = $(`#result-icon`).attr(`src`, thunderStorm);
-      $(`#result-icon`).append(image);
+      var image = $(`#weatherIcon`).attr(`src`, thunderStorm);
+      $(`#weatherIcon`).append(image);
     } else if (icon == `13d` || icon == `13n`) {
-      var image = $(`#result-icon`).attr(`src`, snow);
-      $(`#result-icon`).append(image);
+      var image = $(`#weatherIcon`).attr(`src`, snow);
+      $(`#weatherIcon`).append(image);
     }
 
     //setting name and date text
@@ -102,8 +132,8 @@ function displayWeatherInfo() {
     var cardIndex = 1;
     for (var i = 0; i < response.list.length; i += 8) {
       // setting up forcast cards
-      var cardDate = new Date(response.list[i].dt_text);
-
+      var cardDate = new Date(response.list[i].dt_txt);
+      console.log(response.list[i]);
       var options = {
         weekday: "short",
         year: "numeric",
@@ -112,7 +142,7 @@ function displayWeatherInfo() {
       };
 
       cardDate = cardDate.toLocaleDateString("en-US", options);
-
+      console.log(cardDate);
       var cardTemp = response.list[i].main.temp;
       var cardHumidity = response.list[i].main.humidity;
       var cardIcon = response.list[i].weather[0].icon;
@@ -175,7 +205,7 @@ function renderButtons() {
 $("#searchBtn").on("click", function(event) {
   event.preventDefault();
   // This line of code will grab the input from the textbox
-  var city = $("#citiesBar")
+  var city = $("#cityInput")
     .val()
     .trim();
 
