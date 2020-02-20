@@ -50,10 +50,9 @@ html {
   font-size: 2rem;
 }
 
-#weatherIcon {
+.weather-icon {
   float: right;
-  width: 300px;
-  height: 300px;
+  width: 200px;
 }
 
 .low {
@@ -78,4 +77,33 @@ html {
 
 #result-uv-index {
   width: 20rem;
+}
+
+.cards {
+  display: flex;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+}
+
+#header {
+  padding-bottom: 0;
+}
+
+#
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+  #header {
+    font-size: 5rem;
+    margin-left: 8%;
+  }
+
+  #cityInput {
+    margin-left: 15%;
+  }
+
+  .cards {
+    display: inline-block;
+  }
 }

@@ -34,10 +34,10 @@
 
 
     <div class="container">
-      <div class="row">
+      <div class="row ">
         <!-- cities and search bar -->
-        <div class="container-left  col-3" id="citiesBar">
-          <input type="text" id="cityInput" placeholder="Search your city" />
+        <div class="container-left  col-lg-3 col-md-11 col-sm-1 mt-3" id="citiesBar">
+          <input type="text" id="cityInput" class="cityInput" placeholder="Search your city" />
           <button class="btn" type="button" id="searchBtn">☀</button>
           <div id="cityButtons"></div>
         </div>
@@ -46,9 +46,9 @@
 
 
         <!-- current day weather -->
-        <div class="container-right col-8 border mainBox">
-          <div id="city-name">Please search for you city!</div>
-          <img id="weatherIcon"></img>
+        <div class="container-right col-lg-8 col-md-11 col-sm-10 border mainBox mb-3 mt-3 pb-3">
+          <div id="city-name">Please search for your city!</div>
+          <img class='weather-icon' id="weatherIcon"></img>
           <div id="currentDate"></div>
           <div id="temp" class= "boxFont"></div>
           <div id="humidity" class= "boxFont"></div>
@@ -61,10 +61,10 @@
       <H1 class="text-center pb-4" id="lowerHeader">5 Day Weather Forecast</H1>
       <!-- 5 day forcast cards -->
         <div class="d-flex justify-content-center">
-
+          <div class="cards">
             <!-- DAY 1 CARD -->
             <div class="card m-1" >
-                <div class="card-body text-center">
+                <div class="card-body text-center day1">
                   <h5 class="card-title" id="day1date">Day 1</h5>
                   <img class="day1Icon" id="day1Icon"></img>
                   <p class="card-text" id="day1Temp"></p>
@@ -116,7 +116,7 @@
                   
                 </div>
               </div>
-
+            </div>
 
         </div>
          
