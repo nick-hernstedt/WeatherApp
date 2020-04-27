@@ -4,6 +4,8 @@
 
 https://nick-hernstedt.github.io/WeatherApp/
 
+![Image of HomePage](images/weather.png)
+
 # What it is
 
 An app to show you the upcoming and current forcast for a location.
