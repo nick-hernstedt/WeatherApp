@@ -1,26 +1,29 @@
-# WeatherApp
+# Weather App
 
-A weather app that will show you a 5 day forecast of the city that you search
+# Site URL
 
-I deployed this website on github.
+https://nick-hernstedt.github.io/WeatherApp/
 
-Built With
+# What it is
 
-HTML
-CSS
-Bootstrap
-Javascript
+An app to show you the upcoming and current forcast for a location.
 
-Testing was done with Google Chrome inspect function,
+# Technologies
 
-I used Github as version control Authors
+- HTML / CSS / JavaScript / Jquery / Bootstrap4
 
-Nick Hernstedt
-License
+# APIs
 
-I don't have any license except intellectual property
+- Open Weather API: https://openweathermap.org/api
 
-Acknowledgments
+# User story
 
-Hat tip to anyone whose code was used
-Inspiration
+- AS someone who is curious about the weather
+- SO THAT I can decide what I should be wearing
+- GIVEN a location input
+- WHEN I enter a location THEN I am given a 5 day forcast for the location.
+- WHEN I click on another location I am given that forcast.
+
+# Contributors
+
+- Nick Hernstedt 🐀: https://github.com/nick-hernstedt
