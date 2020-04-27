@@ -4,7 +4,7 @@
 
 https://nick-hernstedt.github.io/WeatherApp/
 
-![Image of HomePage](./images/weather.png)
+![Image of HomePage](weather.png)
 
 # What it is
 
