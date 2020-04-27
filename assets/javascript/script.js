@@ -89,33 +89,6 @@ function displayWeatherInfo() {
       $(`#weatherIcon`).attr(`src`, snow);
     }
 
-    // var icon = response.list[0].weather[0].icon;
-    // if (icon == `01d` || icon == `01n`) {
-    //   var image = $(`#weatherIcon`).attr(`src`, clear);
-    //   $(`#weatherIcon`).append(image);
-    // } else if (icon == `02d` || icon == `02n`) {
-    //   var image = $(`#weatherIcon`).attr(`src`, fewClouds);
-    //   $(`#weatherIcon`).append(image);
-    // } else if (icon == `03d` || icon == `03n`) {
-    //   var image = $(`#weatherIcon`).attr(`src`, scatteredClouds);
-    //   $(`#weatherIcon`).append(image);
-    // } else if (icon == `04d` || icon == `04n`) {
-    //   var image = $(`#weatherIcon`).attr(`src`, brokenClouds);
-    //   $(`#weatherIcon`).append(image);
-    // } else if (icon == `09d` || icon == `09n`) {
-    //   var image = $(`#weatherIcon`).attr(`src`, showerRain);
-    //   $(`#weatherIcon`).append(image);
-    // } else if (icon == `10d` || icon == `10n`) {
-    //   var image = $(`#weatherIcon`).attr(`src`, rain);
-    //   $(`#weatherIcon`).append(image);
-    // } else if (icon == `11d` || icon == `11n`) {
-    //   var image = $(`#weatherIcon`).attr(`src`, thunderStorm);
-    //   $(`#weatherIcon`).append(image);
-    // } else if (icon == `13d` || icon == `13n`) {
-    //   var image = $(`#weatherIcon`).attr(`src`, snow);
-    //   $(`#weatherIcon`).append(image);
-    // }
-
     //setting name and date text
     var cityName = $("#city-name").text(name + " " + date);
 
@@ -163,29 +136,21 @@ function displayWeatherInfo() {
       $(`#day${cardIndex}Humidity`).text(`Humidity: ` + cardHumidity + `%`);
 
       if (cardIcon == `01d` || cardIcon == `01n`) {
-        var image = $(`#day${cardIndex}Icon`).attr(`src`, clear);
-        $(`#day${cardIndex}Icon`).append(image);
+        $(`#day${cardIndex}Icon`).attr(`src`, clear);
       } else if (cardIcon == `02d` || cardIcon == `02n`) {
-        var image = $(`#day${cardIndex}Icon`).attr(`src`, fewClouds);
-        $(`#day${cardIndex}Icon`).append(image);
+        $(`#day${cardIndex}Icon`).attr(`src`, fewClouds);
       } else if (cardIcon == `03d` || cardIcon == `03n`) {
-        var image = $(`#day${cardIndex}Icon`).attr(`src`, scatteredClouds);
-        $(`#day${cardIndex}Icon`).append(image);
+        $(`#day${cardIndex}Icon`).attr(`src`, scatteredClouds);
       } else if (cardIcon == `04d` || cardIcon == `04n`) {
-        var image = $(`#day${cardIndex}Icon`).attr(`src`, brokenClouds);
-        $(`#day${cardIndex}Icon`).append(image);
+        $(`#day${cardIndex}Icon`).attr(`src`, brokenClouds);
       } else if (cardIcon == `09d` || cardIcon == `09n`) {
-        var image = $(`#day${cardIndex}Icon`).attr(`src`, showerRain);
-        $(`#day${cardIndex}Icon`).append(image);
+        $(`#day${cardIndex}Icon`).attr(`src`, showerRain);
       } else if (cardIcon == `10d` || cardIcon == `10n`) {
-        var image = $(`#day${cardIndex}Icon`).attr(`src`, rain);
-        $(`#day${cardIndex}Icon`).append(image);
+        $(`#day${cardIndex}Icon`).attr(`src`, rain);
       } else if (cardIcon == `11d` || cardIcon == `11n`) {
-        var image = $(`#day${cardIndex}Icon`).attr(`src`, thunderStorm);
-        $(`#day${cardIndex}Icon`).append(image);
+        $(`#day${cardIndex}Icon`).attr(`src`, thunderStorm);
       } else if (cardIcon == `13d` || cardIcon == `13n`) {
-        var image = $(`#day${cardIndex}Icon`).attr(`src`, snow);
-        $(`#day${cardIndex}Icon`).append(image);
+        $(`#day${cardIndex}Icon`).attr(`src`, snow);
       }
       cardIndex += 1;
     }
