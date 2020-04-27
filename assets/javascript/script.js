@@ -10,8 +10,8 @@ function displayWeatherInfo() {
   // Creat an AJAX call for the city that you click on
   $.ajax({
     url: queryURL,
-    method: "GET"
-  }).then(function(response) {
+    method: "GET",
+  }).then(function (response) {
     var UVIndex =
       `https://api.openweathermap.org/data/2.5/uvi?appid=9960537bc504b12a81ff658aa9dd27bd&lat=` +
       response.city.coord.lat +
@@ -20,29 +20,22 @@ function displayWeatherInfo() {
 
     $.ajax({
       url: UVIndex,
-      method: "GET"
-    }).then(function(UVResponse) {
+      method: "GET",
+    }).then(function (UVResponse) {
       //UV index
+
       $(`#result-uv-index`).text(`UV Index: ` + UVResponse.value);
       if (UVResponse.value <= 2) {
-        $(`#result-uv-index`).removeClass(`moderate`);
-        $(`#result-uv-index`).removeClass(`high`);
-        $(`#result-uv-index`).removeClass(`very-high`);
+        $(`#result-uv-index`).removeClass(`moderate high very-high`);
         $(`#result-uv-index`).addClass(`low`);
       } else if (UVResponse.value <= 5) {
-        $(`#result-uv-index`).removeClass(`low`);
-        $(`#result-uv-index`).removeClass(`high`);
-        $(`#result-uv-index`).removeClass(`very-high`);
+        $(`#result-uv-index`).removeClass(`low high very-high`);
         $(`#result-uv-index`).addClass(`moderate`);
       } else if (UVResponse.value <= 7) {
-        $(`#result-uv-index`).removeClass(`moderate`);
-        $(`#result-uv-index`).removeClass(`low`);
-        $(`#result-uv-index`).removeClass(`very-high`);
+        $(`#result-uv-index`).removeClass(`low moderate very-high`);
         $(`#result-uv-index`).addClass(`high`);
       } else {
-        $(`#result-uv-index`).removeClass(`moderate`);
-        $(`#result-uv-index`).removeClass(`high`);
-        $(`#result-uv-index`).removeClass(`low`);
+        $(`#result-uv-index`).removeClass(`low moderate high`);
         $(`#result-uv-index`).addClass(`very-high`);
       }
     });
@@ -71,39 +64,57 @@ function displayWeatherInfo() {
       weekday: "short",
       year: "numeric",
       month: "short",
-      day: "numeric"
+      day: "numeric",
     };
 
     date = date.toLocaleDateString("en-US", options);
 
     //getting icon info
     var icon = response.list[0].weather[0].icon;
-
     if (icon == `01d` || icon == `01n`) {
-      var image = $(`#weatherIcon`).attr(`src`, clear);
-      $(`#weatherIcon`).append(image);
+      $(`#weatherIcon`).attr(`src`, clear);
     } else if (icon == `02d` || icon == `02n`) {
-      var image = $(`#weatherIcon`).attr(`src`, fewClouds);
-      $(`#weatherIcon`).append(image);
+      $(`#weatherIcon`).attr(`src`, fewClouds);
     } else if (icon == `03d` || icon == `03n`) {
-      var image = $(`#weatherIcon`).attr(`src`, scatteredClouds);
-      $(`#weatherIcon`).append(image);
+      $(`#weatherIcon`).attr(`src`, scatteredClouds);
     } else if (icon == `04d` || icon == `04n`) {
-      var image = $(`#weatherIcon`).attr(`src`, brokenClouds);
-      $(`#weatherIcon`).append(image);
+      $(`#weatherIcon`).attr(`src`, brokenClouds);
     } else if (icon == `09d` || icon == `09n`) {
-      var image = $(`#weatherIcon`).attr(`src`, showerRain);
-      $(`#weatherIcon`).append(image);
+      $(`#weatherIcon`).attr(`src`, showerRain);
     } else if (icon == `10d` || icon == `10n`) {
-      var image = $(`#weatherIcon`).attr(`src`, rain);
-      $(`#weatherIcon`).append(image);
+      $(`#weatherIcon`).attr(`src`, rain);
     } else if (icon == `11d` || icon == `11n`) {
-      var image = $(`#weatherIcon`).attr(`src`, thunderStorm);
-      $(`#weatherIcon`).append(image);
+      $(`#weatherIcon`).attr(`src`, thunderStrom);
     } else if (icon == `13d` || icon == `13n`) {
-      var image = $(`#weatherIcon`).attr(`src`, snow);
-      $(`#weatherIcon`).append(image);
+      $(`#weatherIcon`).attr(`src`, snow);
     }
+
+    // var icon = response.list[0].weather[0].icon;
+    // if (icon == `01d` || icon == `01n`) {
+    //   var image = $(`#weatherIcon`).attr(`src`, clear);
+    //   $(`#weatherIcon`).append(image);
+    // } else if (icon == `02d` || icon == `02n`) {
+    //   var image = $(`#weatherIcon`).attr(`src`, fewClouds);
+    //   $(`#weatherIcon`).append(image);
+    // } else if (icon == `03d` || icon == `03n`) {
+    //   var image = $(`#weatherIcon`).attr(`src`, scatteredClouds);
+    //   $(`#weatherIcon`).append(image);
+    // } else if (icon == `04d` || icon == `04n`) {
+    //   var image = $(`#weatherIcon`).attr(`src`, brokenClouds);
+    //   $(`#weatherIcon`).append(image);
+    // } else if (icon == `09d` || icon == `09n`) {
+    //   var image = $(`#weatherIcon`).attr(`src`, showerRain);
+    //   $(`#weatherIcon`).append(image);
+    // } else if (icon == `10d` || icon == `10n`) {
+    //   var image = $(`#weatherIcon`).attr(`src`, rain);
+    //   $(`#weatherIcon`).append(image);
+    // } else if (icon == `11d` || icon == `11n`) {
+    //   var image = $(`#weatherIcon`).attr(`src`, thunderStorm);
+    //   $(`#weatherIcon`).append(image);
+    // } else if (icon == `13d` || icon == `13n`) {
+    //   var image = $(`#weatherIcon`).attr(`src`, snow);
+    //   $(`#weatherIcon`).append(image);
+    // }
 
     //setting name and date text
     var cityName = $("#city-name").text(name + " " + date);
@@ -138,7 +149,7 @@ function displayWeatherInfo() {
         weekday: "short",
         year: "numeric",
         month: "short",
-        day: "numeric"
+        day: "numeric",
       };
 
       cardDate = cardDate.toLocaleDateString("en-US", options);
@@ -202,12 +213,10 @@ function renderButtons() {
 }
 
 // This function handles events where the search button is clicked
-$("#searchBtn").on("click", function(event) {
+$("#searchBtn").on("click", function (event) {
   event.preventDefault();
   // This line of code will grab the input from the textbox
-  var city = $("#cityInput")
-    .val()
-    .trim();
+  var city = $("#cityInput").val().trim();
 
   // The city from the textbox is then added to our array
   cities.push(city);
