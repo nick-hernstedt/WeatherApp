@@ -23,8 +23,8 @@ An app to show you the upcoming and current forcast for a location.
 - AS someone who is curious about the weather
 - SO THAT I can decide what I should be wearing
 - GIVEN a location input
-- WHEN I enter a location THEN I am given a 5 day forcast for the location.
-- WHEN I click on another location I am given that forcast.
+- WHEN I enter a location THEN I am given a 5 day forcast for the location
+- WHEN I click on another location I am given that forcast
 
 # Contributors
 
